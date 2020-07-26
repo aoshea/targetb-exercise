@@ -1,0 +1,40 @@
+{
+  "name": "target-b-exercise",
+  "version": "1.0.0",
+  "description": "Target B exercise application",
+  "main": "dist/index.js",
+  "author": "Alastair O'Shea <alastair.oshea@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.4.1",
+    "@types/jest": "^26.0.2",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.1",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.1.0",
+    "style-loader": "^1.2.1",
+    "ts-jest": "^26.1.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.0.2",
+    "@material-ui/core": "^4.11.0",
+    "graphql": "^15.3.0",
+    "material-ui": "^0.20.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}
