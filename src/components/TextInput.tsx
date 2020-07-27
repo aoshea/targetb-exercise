@@ -2,6 +2,7 @@ import React from "react";
 
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 
 import { FormRow, Form, InputContainer } from "./styled";
@@ -23,6 +24,7 @@ export const TextInput = (props: TextInputProps) => {
       <FormRow>
         <FormControl>
           <InputContainer isDirty={props.dirty}>
+            <InputLabel>Enter your message</InputLabel>
             <Input
               id="display-text"
               name="display-text"

@@ -1,12 +1,11 @@
 import styled, { keyframes } from "styled-components";
-import Input from "@material-ui/core/Input";
-import Typography from "@material-ui/core/Typography";
 
 export const AppContent = styled.div`
   background-color: #f5f5f5;
 `;
 
 export const Form = styled.form`
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;

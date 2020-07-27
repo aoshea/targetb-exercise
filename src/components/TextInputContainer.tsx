@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 import { useQuery } from "@apollo/client";
 
@@ -12,13 +14,15 @@ import { TextInput } from "./TextInput";
 import { TextInputDisplay } from "./TextInputDisplay";
 
 export const TextInputContainer = () => {
-  const messageQueryResult = useQuery(GET_MESSAGE);
-  const message: Message = messageQueryResult.data.message;
-  const [messageValue, setMessageValue] = useState(message.text);
+  const { data } = useQuery(GET_MESSAGE);
+ 
+  const [messageValue, setMessageValue] = useState(data ? data.message.text : '');
 
   const { editMessage } = messageMutations;
 
-  const handleChange = (event: React.SyntheticEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+  const handleChange = (
+    event: React.SyntheticEvent<HTMLInputElement> & { target: HTMLInputElement }
+  ) => {
     setMessageValue(event.target.value);
   };
 
@@ -29,25 +33,21 @@ export const TextInputContainer = () => {
     editMessage(messageValue);
   };
 
+  if (!data) return <div data-testid="loading">Loading...</div>
+
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="column"
-      minHeight="100vh"
-    >
-      <Paper elevation={1}>
-        <Box padding={4}>
-          <TextInput
-            messageValue={messageValue}
-            dirty={messageValue !== message.text}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
-          <TextInputDisplay message={message} />
-        </Box>
-      </Paper>
-    </Box>
+    <Paper elevation={1}>
+      <Box padding={4}>
+        <Typography data-testid="title" variant="h3">Reactive Vars</Typography>
+        <Divider />
+        <TextInput
+          messageValue={messageValue}
+          dirty={messageValue !== data.message.text}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+        <TextInputDisplay messageText={data.message.text} />
+      </Box>
+    </Paper>
   );
 };

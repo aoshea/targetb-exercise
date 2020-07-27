@@ -3,3 +3,7 @@ export interface Message {
     id: number;
   }
   
+export interface MessageOutput {
+  id: number;
+  text: string;
+}
