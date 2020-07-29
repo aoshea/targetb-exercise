@@ -1,4 +1,4 @@
-# Target B Exercise
+# Apollo Client - Local state management examples
 
 Exercise contains two examples of local state management with Apollo
 - Apollo Client 3.0 Reactive Vars
